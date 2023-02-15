@@ -1,0 +1,11 @@
+{
+    "contractors.invoice": "Faktura kontraktowca",
+    "save": "Zapisz",
+    "delete": "Usuń",
+    "save.and.send.to.confirm": "Zapisz i wyślij do zatwierdzenia",
+    "nip.number": "NIP",
+    "currency": "Waluta",
+    "create.date": "Data wystawienia",
+    "delivery.date": "Data dostawy",
+    "payment.term": "Termin płatności"
+}
