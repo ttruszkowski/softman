@@ -1,7 +1,7 @@
-<mat-form-field appearance="fill" [formGroup]="group">
+<mat-form-field (click)="picker.open()" appearance="fill" [formGroup]="group">
     <mat-label>{{ label | translate }}</mat-label>
-    <input matInput [matDatepicker]="picker" [formControlName]="control" [disabled]="true">
+    <input matInput [matDatepicker]="picker" [formControlName]="control">
     <mat-hint>MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker [disabled]="false"></mat-datepicker>
+    <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>

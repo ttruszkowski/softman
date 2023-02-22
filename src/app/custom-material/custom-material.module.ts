@@ -5,7 +5,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { CustomDateAdapter } from './custom-date-adapter';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [],
@@ -16,7 +20,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatButtonModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   exports: [
     MatCardModule,
@@ -24,10 +30,18 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatButtonModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [
-    MatDatepickerModule
+    MatDatepickerModule,
+    {
+      provide: MAT_DATE_LOCALE, useValue: 'pl'
+    },
+    {
+      provide: DateAdapter, useClass: CustomDateAdapter
+    }
   ]
 })
 export class CustomMaterialModule { }

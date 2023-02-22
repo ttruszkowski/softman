@@ -7,5 +7,12 @@
     "currency": "Waluta",
     "create.date": "Data wystawienia",
     "delivery.date": "Data dostawy",
-    "payment.term": "Termin płatności"
+    "payment.term": "Termin płatności",
+    "add.new.row": "Dodaj wiersz",
+    "vatPercent": "Stawka VAT",
+    "nettoValue": "Wartość netto",
+    "vatValue": "Wartość VAT",
+    "grossValue": "Wartość brutto",
+    "sum": "Razem",
+    "sum.to.pay": "Razem do zapłaty"
 }

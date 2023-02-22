@@ -11,9 +11,7 @@
             </div>
     
             <app-invoice-details [group]="invoiceForm"></app-invoice-details>
-    
-            <app-invoice-summary [group]="invoiceForm"></app-invoice-summary>
-    
+        
             <div class="dates-column">
                 <app-datepicker-form [group]="invoiceForm" [control]="'createDate'" [label]="'create.date'"></app-datepicker-form>
                 <app-datepicker-form [group]="invoiceForm" [control]="'deliveryDate'" [label]="'delivery.date'"></app-datepicker-form>
@@ -23,9 +21,9 @@
     </mat-card-content>
 
     <mat-card-actions>
-        <button mat-raised-button>{{ 'delete' | translate }}</button>
-        <button mat-raised-button color="primary">{{ 'save' | translate }}</button>
-        <button mat-raised-button disabled>{{ 'save.and.send.to.confirm' | translate }}</button>
+        <button type="button" mat-raised-button>{{ 'delete' | translate }}</button>
+        <button type="button" mat-raised-button color="primary">{{ 'save' | translate }}</button>
+        <button type="button" mat-raised-button disabled>{{ 'save.and.send.to.confirm' | translate }}</button>
     </mat-card-actions>
 </mat-card>
 

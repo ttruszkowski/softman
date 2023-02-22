@@ -1,1 +1,43 @@
-<p>invoice-details works!</p>
+<div class="details-content" [formGroup]="group">
+
+    <ng-container formArrayName="{{control}}">
+
+        <ng-container>
+            <div class="detail-form-row">
+                <div class="row-title">{{ 'vatPercent' | translate }}</div>
+                <div class="row-title">{{ 'nettoValue' | translate }}</div>
+                <div class="row-title">{{ 'vatValue' | translate }}</div>
+                <div class="row-title">{{ 'grossValue' | translate }}</div>
+                <div class="row-title"></div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngFor="let detailForm of details.controls; let i = index">
+            <div class="detail-form-row" [formGroup]="detailForm">
+                <app-vat-percent-form [group]="detailForm" (vatPercentChange)="onVatPercentChange($event, i)"></app-vat-percent-form>
+                
+                <mat-form-field appearance="fill">
+                    <input matInput appInputOnlyNumber formControlName="nettoValue" (blur)="transformAmount($event, i, 'nettoValue'); onNettoValueInput($event, i)">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <input matInput appInputOnlyNumber formControlName="vatValue" (blur)="transformAmount($event, i, 'vatValue'); onVatValueInput($event, i)">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <input matInput appInputOnlyNumber formControlName="grossValue" (blur)="transformAmount($event, i, 'grossValue')">
+                </mat-form-field>
+
+                <button type="button" mat-icon-button matTooltip="{{ 'delete' | translate }}" (click)="deleteRowItem(i)"><mat-icon>delete</mat-icon></button>
+            </div>
+        </ng-container>
+
+        <app-invoice-summary [group]="group"></app-invoice-summary>
+
+    </ng-container>
+
+</div>
+
+<div class="add-detail-button">
+    <button type="button" mat-icon-button (click)="addNewDetailRow()" matTooltip="{{ 'add.new.row' | translate }}"><mat-icon>add_circle</mat-icon></button>
+</div>

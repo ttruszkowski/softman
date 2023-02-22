@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -17,6 +17,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatepickerFormComponent } from './shared/components/datepicker-form/datepicker-form.component';
 import { InvoiceDetailsComponent } from './invoice/invoice-details/invoice-details.component';
 import { InvoiceSummaryComponent } from './invoice/invoice-summary/invoice-summary.component';
+import { VatPercentFormComponent } from './shared/components/vat-percent-form/vat-percent-form.component';
+import { InputOnlyNumberDirective } from './shared/directives/input-only-number.directive';
+import { DecimalPipe } from '@angular/common';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -30,7 +33,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     CurrencyFormComponent,
     DatepickerFormComponent,
     InvoiceDetailsComponent,
-    InvoiceSummaryComponent
+    InvoiceSummaryComponent,
+    VatPercentFormComponent,
+    InputOnlyNumberDirective
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    DecimalPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

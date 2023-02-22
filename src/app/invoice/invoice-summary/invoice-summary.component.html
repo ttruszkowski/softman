@@ -1,1 +1,19 @@
-<p>invoice-summary works!</p>
+
+<ng-container>
+    <div class="detail-form-row">
+        <div class="row-title">{{ 'sum' | translate }}:</div>
+        <div class="row-title"><span *ngIf="nettoValueSum && nettoValueSum > 0">{{ nettoValueSum | number : '1.2-2' }}</span></div>
+        <div class="row-title"><span *ngIf="vatValueSum && vatValueSum > 0">{{ vatValueSum | number : '1.2-2' }}</span></div>
+        <div class="row-title"><span *ngIf="grossValueSum && grossValueSum > 0">{{ grossValueSum | number : '1.2-2' }}</span></div>
+        <div class="row-title"></div>
+    </div>
+</ng-container>
+<ng-container>
+    <div class="detail-form-row">
+        <div class="row-title bolded">{{ 'sum.to.pay' | translate }}:</div>
+        <div class="row-title"></div>
+        <div class="row-title"></div>
+        <div class="row-title bolded"><span *ngIf="grossValueSum && grossValueSum > 0">{{ grossValueSum | number : '1.2-2' }}</span></div>
+        <div class="row-title"></div>
+    </div>
+</ng-container>
